@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import logo from "@/assets/images/logo3-bg.png";
+import { Button } from "./ui/button";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -13,97 +13,96 @@ const navItems = [
   { label: "Contact", href: "/contact" },
 ];
 
-const Navbar = () => {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  window.onscroll = () => {
+    setIsOpen(false);
+  };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-foreground shadow-xl" : "bg-foreground backdrop-blur-sm"
-      }`}
-    >
-      <div className="container-custom">
-        <nav className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img src={logo} alt="Boukartech Logo" className="h-11 w-32 lg:h-12" />
-          </Link>
+    <header className="fixed top-0 inset-x-0 z-50">
+      <div className="bg-foreground/90 backdrop-blur-md border-border">
+        <div className="container-custom">
+          <nav className="flex items-center justify-between h-16 md:h-20">
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-2">
+              <img src={logo} alt="Boukartech Logo" className="h-12 w-auto object-contain" />
+            </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            <ul className="flex items-center gap-8">
-              {navItems.map((item) => (
-                <li key={item.label}>
-                  <Link
-                    to={item.href}
-                    className={`relative px-1 py-2 text-sm font-medium transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 after:w-0 hover:after:w-full ${
-                      location.pathname === item.href ? "text-primary after:w-full" : "text-white hover:text-white"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+            {/* Desktop Nav */}
+            <ul className="hidden md:flex items-center gap-10">
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.href;
+                return (
+                  <li key={item.label} className="relative">
+                    <Link
+                      to={item.href}
+                      className={`font-medium transition-colors ${isActive ? "text-primary" : "text-white/80 hover:text-primary"}`}
+                    >
+                      {item.label}
+                    </Link>
+
+                    {/* Active underline */}
+                    {isActive && <motion.span layoutId="active-nav" className="absolute -bottom-2 left-0 h-[2px] w-full bg-primary rounded-full" />}
+                  </li>
+                );
+              })}
             </ul>
-          </div>
 
-          {/* Mobile Menu Toggle */}
-          <button className="lg:hidden p-2 text-white" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </nav>
-
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="lg:hidden bg-white border-t border-gray-100 shadow-lg"
+            {/* Mobile Toggle */}
+            <button
+              onClick={() => setIsOpen((prev) => !prev)}
+              className="md:hidden text-white p-2 rounded-md hover:bg-white/10 transition-colors"
+              aria-label="Toggle menu"
             >
-              <div className="py-4">
-                <ul className="flex flex-col">
-                  {navItems.map((item, index) => (
-                    <motion.li key={item.label} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.05 }}>
+              {isOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </nav>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.25 }}
+            className="md:hidden bg-foreground min-h-screen h-full flex flex-col"
+          >
+            <div className="container-custom py-6 w-full ">
+              <ul className="flex flex-col gap-6">
+                {navItems.map((item) => {
+                  const isActive = location.pathname === item.href;
+                  return (
+                    <li key={item.label}>
                       <Link
                         to={item.href}
-                        className={`block py-3 px-6 text-sm font-medium transition-colors ${
-                          location.pathname === item.href
-                            ? "text-primary bg-primary/5 border-l-4 border-primary"
-                            : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                        }`}
                         onClick={() => setIsOpen(false)}
+                        className={`text-lg font-medium transition-colors ${isActive ? "text-primary" : "text-white/80 hover:text-primary"}`}
                       >
                         {item.label}
                       </Link>
-                    </motion.li>
-                  ))}
-                  <li className="mt-4 px-6">
-                    <Button className="w-full bg-gray-900 hover:bg-black text-white" asChild>
-                      <a href="https://calendly.com/boukartech" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
-                        Contact Us
-                      </a>
-                    </Button>
-                  </li>
-                </ul>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+
+              {/* Bottom CTA Section */}
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }} className="py-6">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-white py-6 text-base" asChild>
+                  <a href="https://calendly.com/boukartech" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                    Book a Consultation
+                  </a>
+                </Button>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
-};
-
-export default Navbar;
+}
