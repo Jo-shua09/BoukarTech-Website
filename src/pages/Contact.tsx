@@ -26,10 +26,10 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // EmailJS configuration - Replace with your actual service ID, template ID, and public key
-      const serviceId = "your_service_id";
-      const templateId = "your_template_id";
-      const publicKey = "your_public_key";
+      // EmailJS configuration
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
       const templateParams = {
         from_name: formData.name,
