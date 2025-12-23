@@ -30,41 +30,42 @@ const footerLinks = {
   ],
 };
 
-const Footer = () => {
+export default function Footer() {
   const { toast } = useToast();
   const [email, setEmail] = useState("");
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      toast({
-        title: "Subscribed!",
-        description: "You'll receive our latest updates.",
-      });
-      setEmail("");
-    }
+    if (!email) return;
+
+    toast({
+      title: "Subscribed!",
+      description: "You'll receive our latest updates.",
+    });
+
+    setEmail("");
   };
 
   return (
-    <footer className="bg-foreground text-background">
-      {/* Newsletter Section */}
+    <footer className="bg-foreground text-background w-full overflow-hidden">
+      {/* Newsletter */}
       <div className="border-b border-background/10">
-        <div className="container-custom py-12 pb-6">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
-            <div className="lg:text-left text-center">
-              <h3 className="text-xl font-bold">Get to our Newsletter</h3>
-              <p className="text-background/60 text-base">Be the first to receive updates when they roll out.</p>
+        <div className="container-custom py-12">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="text-center lg:text-left">
+              <h3 className="text-xl font-semibold">Join our Newsletter</h3>
+              <p className="text-background/60 text-sm max-w-md mx-auto lg:mx-0">Be the first to receive updates when they roll out.</p>
             </div>
 
-            <form onSubmit={handleSubscribe} className="flex w-full max-w-xl gap-2 items-center">
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row w-full max-w-xl gap-3">
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email here"
-                className="flex-1 bg-background/10 text-base border border-background/20 rounded-full px-5 py-3 text-background placeholder:text-background/40 focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Your email address"
+                className="w-full bg-background/10 border border-background/20 rounded-full px-5 py-3 text-sm text-background placeholder:text-background/40 focus:outline-none focus:ring-2 focus:ring-primary"
               />
-              <Button type="submit" size="lg" variant="hero">
+              <Button type="submit" size="lg" variant="hero" className="w-full sm:w-auto">
                 Subscribe
               </Button>
             </form>
@@ -73,51 +74,39 @@ const Footer = () => {
       </div>
 
       {/* Main Footer */}
-      <div className="container-custom py-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+      <div className="container-custom py-12">
+        <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {/* Logo & Social */}
-          <div className="col-span-2 md:col-span-3 lg:col-span-2">
-            <div className="flex items-center gap-2">
-              <img src={logo} alt="Boukartech Logo" className="h-18 w-44" />
-            </div>
+          <div className="lg:col-span-2 space-y-6">
+            <img src={logo} alt="Boukartech Logo" className="w-40 max-w-full object-contain" />
 
-            {/* Socials */}
             <div className="flex gap-4">
-              <a
-                href="https://www.instagram.com/boukartech"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-background/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-colors"
-              >
-                <Instagram size={18} />
-              </a>
-              <a
-                href="https://youtube.com/@boukartechsolutions?si=9VI8W4CceyBLLbEs"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-background/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-colors"
-              >
-                <Youtube size={18} />
-              </a>
-              <a
-                href="https://www.facebook.com/share/1BaTXoeFUb"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-background/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-colors"
-              >
-                <Facebook size={18} />
-              </a>
+              {[
+                { icon: Instagram, href: "https://www.instagram.com/boukartech" },
+                { icon: Youtube, href: "https://youtube.com/@boukartechsolutions?si=9VI8W4CceyBLLbEs" },
+                { icon: Facebook, href: "https://www.facebook.com/share/1BaTXoeFUb" },
+              ].map(({ icon: Icon, href }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-background/20 hover:bg-primary hover:border-primary transition-colors"
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Links */}
+          {/* Footer Links */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="font-semibold text-lg mb-4">{title}</h4>
+              <h4 className="font-semibold text-base mb-4">{title}</h4>
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-base text-background/60 hover:text-primary transition-colors">
+                    <Link to={link.href} className="text-sm text-background/60 hover:text-primary transition-colors">
                       {link.label}
                     </Link>
                   </li>
@@ -131,11 +120,9 @@ const Footer = () => {
       {/* Copyright */}
       <div className="border-t border-background/10">
         <div className="container-custom py-4 text-center">
-          <p className="text-sm text-background/60">© {new Date().getFullYear()} Boukartech. All rights reserved.</p>
+          <p className="text-xs text-background/60">© {new Date().getFullYear()} Boukartech. All rights reserved.</p>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

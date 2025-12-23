@@ -210,14 +210,46 @@ const Contact = () => {
               className="space-y-8"
             >
               {/* CEO Card */}
-              <div className="relative overflow-hidden rounded-3xl">
-                <img src={phillipImg} alt="Ndoula Philip, CEO" className="w-full aspect-[1/1] object-cover object-top" />
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="relative overflow-hidden rounded-3xl group"
+              >
+                <motion.img
+                  src={phillipImg}
+                  alt="Ndoula Philip, CEO"
+                  className="w-full aspect-[1/1] object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                />
 
                 {/* Info overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary to-primary/80 p-6 text-primary-foreground">
-                  <h4 className="text-xl font-bold mb-3">Ndoula Philip, CEO</h4>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary to-primary/80 p-6 text-primary-foreground"
+                >
+                  <motion.h4
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                    className="text-xl font-bold mb-3"
+                  >
+                    Ndoula Philip, CEO
+                  </motion.h4>
 
-                  <div className="space-y-2 text-sm">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.6 }}
+                    className="space-y-2 text-sm"
+                  >
                     <a href="mailto:boukartech@gmail.com" className="flex items-center gap-2 hover:underline">
                       <Mail size={16} />
                       boukartech@gmail.com
@@ -226,28 +258,38 @@ const Contact = () => {
                       <Phone size={16} />
                       +2349039101551
                     </a>
-                  </div>
+                  </motion.div>
 
-                  <div className="flex gap-3 mt-4">
-                    <a
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.7 }}
+                    className="flex gap-3 mt-4"
+                  >
+                    <motion.a
                       href="https://www.linkedin.com/in/ndoula-philip-632025255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-8 h-8 rounded-full bg-primary-foreground/20 flex items-center justify-center hover:bg-primary-foreground/30 transition-colors"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       <Linkedin size={16} />
-                    </a>
-                    <a
+                    </motion.a>
+                    <motion.a
                       href="https://www.instagram.com/boukartech"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-8 h-8 rounded-full bg-primary-foreground/20 flex items-center justify-center hover:bg-primary-foreground/30 transition-colors"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       <Instagram size={16} />
-                    </a>
-                  </div>
-                </div>
-              </div>
+                    </motion.a>
+                  </motion.div>
+                </motion.div>
+              </motion.div>
 
               {/* Quick Contact Info */}
               <div className="bg-secondary rounded-2xl p-6">
