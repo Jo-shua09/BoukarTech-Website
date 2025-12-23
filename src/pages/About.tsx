@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import { Linkedin, Mail, Twitter, Instagram, Shield, Check, TrendingUp, Lock, Lightbulb } from "lucide-react";
+import { Shield, Check, TrendingUp, Lock, Lightbulb } from "lucide-react";
 import Layout from "@/components/Layout";
 import phillipImg from "@/assets/images/phillip.jpg";
 import danielImg from "@/assets/images/daniel.jpg";

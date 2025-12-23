@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Briefcase, Users, TrendingUp } from "lucide-react";
+import { Briefcase, Users, TrendingUp } from "lucide-react";
 import Layout from "@/components/Layout";
 import Hero from "@/components/sections/Hero";
 
