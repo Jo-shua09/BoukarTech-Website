@@ -50,7 +50,7 @@ export default function Hero({ title, cTitle, description, buttonOne, buttonTwo,
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex flex-wrap gap-4 items-center"
             >
-              <Button className="" variant="hero" size="lg" asChild>
+              <Button className="md:w-fit w-full" variant="hero" size="lg" asChild>
                 {buttonLink.startsWith("http") ? (
                   <a href={buttonLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                     {buttonOne}
@@ -65,7 +65,7 @@ export default function Hero({ title, cTitle, description, buttonOne, buttonTwo,
               </Button>
 
               {buttonTwo && (
-                <Button className="" variant="outlineBlue" size="lg" asChild>
+                <Button className="md:w-fit w-full" variant="outlineBlue" size="lg" asChild>
                   <Link to="/services">{buttonTwo}</Link>
                 </Button>
               )}
@@ -81,7 +81,7 @@ export default function Hero({ title, cTitle, description, buttonOne, buttonTwo,
           className="absolute right-10 top-[40%] transform -translate-y-1/2 hidden xl:block"
         >
           <div className="w-64 justify-center flex items-center h-64 bg-gradient-to-br from-primary/10 to-blue-100 rounded-2xl shadow-xl border border-gray-200">
-            <img src={logo} alt="logo" className="w-full h-full object-contain" />
+            <img loading="lazy" src={logo} alt="logo" className="w-full h-full object-contain" />
           </div>
         </motion.div>
       </div>

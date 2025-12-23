@@ -35,7 +35,7 @@ export default function VisionMission() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex-shrink-0"
             >
-              <img src={vision} alt="vision image" className="w-64 h-64 object-cover lg:w-96 rounded-full" />
+              <img loading="lazy" src={vision} alt="vision image" className="w-64 h-64 object-cover lg:w-96 rounded-full" />
             </motion.div>
           </div>
         </motion.div>
@@ -56,7 +56,7 @@ export default function VisionMission() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex-shrink-0 order-2 lg:order-1"
             >
-              <img src={mission} alt="mission image" className="w-64 h-64 object-cover lg:w-96 rounded-full" />
+              <img loading="lazy" src={mission} alt="mission image" className="w-64 h-64 object-cover lg:w-96 rounded-full" />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}

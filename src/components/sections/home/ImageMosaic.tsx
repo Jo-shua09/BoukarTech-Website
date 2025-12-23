@@ -45,7 +45,7 @@ export default function ImageMosaic() {
         transition={{ duration: 0.6, delay: 0.4 }}
         className="md:row-span-2 rounded-2xl overflow-hidden"
       >
-        <img src={mosaic} loading="lazy" alt="Mosaic image" className="w-full h-full object-cover" />
+        <img loading="lazy" src={mosaic} alt="Mosaic image" className="w-full h-full object-cover" />
       </motion.div>
     </div>
   );

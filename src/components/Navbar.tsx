@@ -37,7 +37,7 @@ export default function Navbar() {
           <nav className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center">
-              <img src={logo} alt="Boukartech Logo" className="h-12 w-auto object-contain" />
+              <img loading="lazy" src={logo} alt="Boukartech Logo" className="h-12 w-auto object-contain" />
             </Link>
 
             {/* Desktop Navigation */}

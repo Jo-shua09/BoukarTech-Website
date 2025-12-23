@@ -78,7 +78,7 @@ export default function Footer() {
         <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {/* Logo & Social */}
           <div className="lg:col-span-2 space-y-6">
-            <img src={logo} alt="Boukartech Logo" className="w-40 max-w-full object-contain" />
+            <img loading="lazy" src={logo} alt="Boukartech Logo" className="w-40 max-w-full object-contain" />
 
             <div className="flex gap-4">
               {[

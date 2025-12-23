@@ -29,6 +29,7 @@ export default function Team() {
                 {/* Image */}
                 <div className="relative aspect-[1/1] overflow-hidden">
                   <img
+                    loading="lazy"
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
