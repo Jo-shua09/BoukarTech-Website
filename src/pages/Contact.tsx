@@ -39,6 +39,7 @@ const Contact = () => {
         budget: formData.budget,
         message: formData.message,
         to_email: "boukartech@gmail.com",
+        to_name: "Boukartech Team",
       };
 
       await emailjs.send(serviceId, templateId, templateParams, publicKey);
@@ -117,7 +118,7 @@ const Contact = () => {
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-1">Phone</label>
                     <input
@@ -143,7 +144,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-1">Industry</label>
                     <input
@@ -220,7 +221,7 @@ const Contact = () => {
                 <motion.img
                   src={phillipImg}
                   alt="Ndoula Philip, CEO"
-                  className="w-full aspect-[1/1] object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  className="w-full aspect-[4/5] object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 />

@@ -23,7 +23,9 @@ export default function FAQ() {
             >
               <h2 className="font-bold text-2xl md:text-4xl text-primary mb-2">Frequently Asked Questions</h2>
               <h4 className="text-lg md:text-xl font-medium mb-2">Still have questions?</h4>
-              <p className="text-base font-normal text-muted-foreground">Can't find the answers you re looking for?, Get in touch with us</p>
+              <p className=" text-sm md:text-base font-normal text-muted-foreground">
+                Can't find the answers you re looking for?, Get in touch with us
+              </p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}

@@ -24,7 +24,7 @@ export default function Hero({ title, cTitle, description, buttonOne, buttonTwo,
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-3xl md:text-6xl md:w-[70%] text-white lg:text-7xl font-bold mb-8 leading-tight"
+              className="text-3xl md:text-6xl md:w-[70%] w-[70%] text-white lg:text-7xl font-bold mb-8 leading-tight"
             >
               {title}{" "}
               <span className="text-primary relative">
@@ -38,7 +38,7 @@ export default function Hero({ title, cTitle, description, buttonOne, buttonTwo,
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-xl text-white/80 mb-8 max-w-2xl leading-relaxed font-light"
+              className="text-base md:text-xl text-white/80 mb-8 max-w-2xl leading-relaxed font-light"
             >
               {description}
             </motion.p>

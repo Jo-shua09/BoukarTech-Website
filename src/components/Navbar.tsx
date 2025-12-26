@@ -106,7 +106,7 @@ export default function Navbar() {
                       <Link
                         to={item.href}
                         onClick={() => setIsOpen(false)}
-                        className={`block text-3xl font-semibold transition-colors ${isActive ? "text-primary" : "text-white/80 hover:text-primary"}`}
+                        className={`block text-xl font-semibold transition-colors ${isActive ? "text-primary" : "text-white/80 hover:text-primary"}`}
                       >
                         {item.label}
                       </Link>

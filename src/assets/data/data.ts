@@ -1,6 +1,8 @@
 import phillipImg from "@/assets/images/phillip.jpg";
 import danielImg from "@/assets/images/daniel.jpg";
 import lydiaImg from "@/assets/images/jessica.jpg";
+import Joshua from "@/assets/images/me.png";
+
 import { Check, Shield, TrendingUp, Lock, Lightbulb, Megaphone, Smartphone, Code, Video, Palette, Film, Server, Target } from "lucide-react";
 
 export const services = [
@@ -71,13 +73,13 @@ export const team = [
   { name: "Ndoula Philip", role: "Founder / CEO", image: phillipImg },
   { name: "Obafayi Lydia", role: "Content/SMM Manager & Team Lead", image: lydiaImg },
   { name: "Omotoye Daniel", role: "Brand Designer/Team Lead", image: danielImg },
-  { name: "Joshua Onyeka", role: "Web Developer/Team Lead", image: phillipImg },
+  { name: "Joshua Onyeka", role: "Web Developer/Team Lead", image: Joshua },
 ];
 
 export const faq = [
   {
     q: "What services does your company provide?",
-    a: "Our company provides a range of services including web development, graphics designing, UX/UI design, crypto exchanges, virtual assistance and IT consulting. We strive to offer comprehensive solutions specialized to meet the specific needs of our clients.",
+    a: "Our company provides a range of services including web development, graphics designing, UX/UI design, virtual assistance and IT consulting. We strive to offer comprehensive solutions specialized to meet the specific needs of our clients.",
   },
   {
     q: "How can I get in touch with your team for inquiries?",
@@ -168,7 +170,7 @@ export const serviceDetailed = [
     title: "Ads Specialist",
     description:
       "Strategic advertising campaigns that maximize ROI and conversions. We optimize your ad spend across Google, Facebook, Instagram, and other platforms.",
-    features: ["Google Ads Management", "Social Media Advertising", "Retargeting Campaigns", "A/B Testing", "Conversion Optimization"],
+    features: ["Google Ads Management", "Facebook & Intsagram Ads", "Retargeting Campaigns", "A/B Testing", "Conversion Optimization"],
   },
 ];
 
