@@ -40,6 +40,7 @@ const Contact = () => {
         message: formData.message,
         to_email: "boukartech@gmail.com",
         to_name: "Boukartech Team",
+        date: new Date().toLocaleString(),
       };
 
       await emailjs.send(serviceId, templateId, templateParams, publicKey);
