@@ -6,11 +6,11 @@ export default function Value() {
     <section className="pb-16 lg:pb-24 bg-white">
       <div className="container-custom">
         {/* Header - Minimalist */}
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-10 max-w-3xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-light text-gray-900 mb-4 tracking-tight">
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-6 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-6xl font-light text-gray-900 tracking-tight">
             Our <span className="font-bold text-primary">Values</span>
           </h2>
-          <p className="text-xl text-gray-600 leading-relaxed">
+          <p className="text-base md:text-xl text-gray-600 leading-relaxed">
             Principles that define our approach, guide our decisions, and shape our relationships.
           </p>
         </motion.div>
@@ -27,7 +27,7 @@ export default function Value() {
               className="group"
             >
               {/* Simple, clean card */}
-              <div className="h-full p-8 hover:bg-gray-50/50 rounded-2xl transition-all duration-500 border border-transparent hover:border-gray-200">
+              <div className="h-full p-6 bg-gray-50/50 rounded-2xl transition-all duration-500 border border-transparent border-gray-200">
                 {/* Icon with subtle background */}
                 <div className="w-14 h-14 rounded-xl bg-primary/5 flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors">
                   <value.icon size={24} className="text-primary" />

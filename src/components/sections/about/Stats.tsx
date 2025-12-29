@@ -10,7 +10,7 @@ export default function Stats() {
             <h2 className="text-4xl font-semibold text-foreground mb-4">Boukartech Team</h2>
 
             <p className="text-5xl font-bold text-foreground">
-              10+
+              15+
               <span className="block text-lg font-normal text-muted-foreground mt-2">Experts in the field</span>
             </p>
           </motion.div>
@@ -18,7 +18,7 @@ export default function Stats() {
           {/* Top Stats */}
           <div className="flex flex-col md:flex-row  items-center gap-10 justify-between max-w-xl m-auto  mb-10">
             <div className="text-center md:text-left">
-              <p className="text-6xl font-bold text-muted-foreground mb-3">43%</p>
+              <p className="text-6xl font-bold text-muted-foreground mb-3">50%</p>
               <p className="text-lg text-foreground max-w-xs">
                 Mobile & front-end
                 <br />
@@ -27,7 +27,7 @@ export default function Stats() {
             </div>
 
             <div className="text-center md:text-right">
-              <p className="text-6xl font-bold text-muted-foreground mb-3">35%</p>
+              <p className="text-6xl font-bold text-muted-foreground mb-3">40%</p>
               <p className="text-lg text-foreground">
                 Brand
                 <br />
@@ -46,7 +46,7 @@ export default function Stats() {
               </div>
 
               <p className="text-lg text-foreground">
-                <span className="font-semibold">50%</span> of team growth per year
+                <span className="font-semibold">60%</span> of team growth per year
               </p>
             </div>
 
@@ -58,7 +58,7 @@ export default function Stats() {
               </div>
 
               <p className="text-lg text-foreground">
-                <span className="font-semibold">80%</span> of the team have at least 5 years of experience
+                <span className="font-semibold">90%</span> of the team have at least 5 years of experience
               </p>
             </div>
           </div>

@@ -71,7 +71,7 @@ export const values = [
 
 export const team = [
   { name: "Ndoula Philip", role: "Founder / CEO", image: phillipImg },
-  { name: "Obafayi Lydia", role: "Content/SMM Manager & Team Lead", image: lydiaImg },
+  { name: "Obafaye Lydia", role: "Content Writer & Team Lead", image: lydiaImg },
   { name: "Omotoye Daniel", role: "Brand Designer/Team Lead", image: danielImg },
   { name: "Joshua Onyeka", role: "Web Developer/Team Lead", image: Joshua },
 ];
