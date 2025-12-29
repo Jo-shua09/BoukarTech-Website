@@ -8,7 +8,7 @@ export default function Team() {
       <div className="container-custom">
         {/* Section Header */}
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-6">
-          <h2 className="heading-lg text-foreground">
+          <h2 className="heading-lg text-foreground mb-2">
             Meet Our <span className="text-primary">Team</span>
           </h2>
           <p className="body-md text-muted-foreground max-w-2xl mx-auto">The talented professionals behind Boukartech's success.</p>

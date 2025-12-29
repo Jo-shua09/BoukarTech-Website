@@ -1,7 +1,7 @@
 import phillipImg from "@/assets/images/phillip.jpg";
 import danielImg from "@/assets/images/daniel.jpg";
 import lydiaImg from "@/assets/images/jessica.jpg";
-import Joshua from "@/assets/images/me.png";
+import Joshua from "@/assets/images/joshua.png";
 
 import { Check, Shield, TrendingUp, Lock, Lightbulb, Megaphone, Smartphone, Code, Video, Palette, Film, Server, Target } from "lucide-react";
 

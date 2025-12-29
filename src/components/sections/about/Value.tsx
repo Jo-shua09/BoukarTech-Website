@@ -7,7 +7,7 @@ export default function Value() {
       <div className="container-custom">
         {/* Header - Minimalist */}
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-6 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-6xl font-light text-gray-900 tracking-tight">
+          <h2 className="text-3xl md:text-6xl font-semibold mb-2 text-gray-900 tracking-tight">
             Our <span className="font-bold text-primary">Values</span>
           </h2>
           <p className="text-base md:text-xl text-gray-600 leading-relaxed">
