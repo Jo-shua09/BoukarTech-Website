@@ -92,7 +92,7 @@ export default function Navbar() {
 
             <div className="flex flex-col justify-between h-full w-full px-6 py-10">
               {/* Navigation Links */}
-              <ul className="space-y-8">
+              <ul className="space-y-5">
                 {navItems.map((item, index) => {
                   const isActive = location.pathname === item.href;
                   return (
