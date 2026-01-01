@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Instagram, Youtube, Facebook } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import logo from "@/assets/images/logo3-bg.png";
+import emailjs from "@emailjs/browser";
 
 const footerLinks = {
   "About Us": [
@@ -33,17 +34,47 @@ const footerLinks = {
 export default function Footer() {
   const { toast } = useToast();
   const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
 
-    toast({
-      title: "Subscribed!",
-      description: "You'll receive our latest updates.",
-    });
+    setIsSubmitting(true);
 
-    setEmail("");
+    try {
+      // EmailJS configuration
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      const templateParams = {
+        from_email: email,
+        to_email: "boukartech@gmail.com",
+        to_name: "Boukartech Team",
+        subject: "New Newsletter Subscription",
+        message: `A new user has subscribed to the newsletter: ${email}`,
+        date: new Date().toLocaleString(),
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      toast({
+        title: "Subscribed!",
+        description: "You'll receive our latest updates.",
+      });
+
+      setEmail("");
+    } catch (error) {
+      console.error("Subscription failed:", error);
+      toast({
+        title: "Subscription failed",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -65,8 +96,8 @@ export default function Footer() {
                 placeholder="Your email address"
                 className="w-full bg-background/10 border border-background/20 rounded-full px-5 py-3 text-sm text-background placeholder:text-background/40 focus:outline-none focus:ring-2 focus:ring-primary"
               />
-              <Button type="submit" size="lg" variant="hero" className="w-full sm:w-auto">
-                Subscribe
+              <Button type="submit" size="lg" variant="hero" className="w-full sm:w-auto" disabled={isSubmitting}>
+                {isSubmitting ? "Subscribing..." : "Subscribe"}
               </Button>
             </form>
           </div>
