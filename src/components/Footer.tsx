@@ -106,9 +106,9 @@ export default function Footer() {
 
       {/* Main Footer */}
       <div className="container-custom py-12">
-        <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+        <div className="grid gap-10 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {/* Logo & Social */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="col-span-2 space-y-6">
             <img loading="lazy" src={logo} alt="Boukartech Logo" className="w-40 max-w-full object-contain" />
 
             <div className="flex gap-4">
