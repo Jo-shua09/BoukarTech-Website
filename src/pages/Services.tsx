@@ -57,7 +57,7 @@ const Services = () => {
                     </div>
                     <div>
                       <h3 className="text-xl font-semibold text-foreground mb-2">{service.title}</h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
+                      <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">{service.description}</p>
                     </div>
                   </div>
                   {/* 
@@ -135,7 +135,7 @@ const Services = () => {
 
         {/* Service Modal */}
         <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-          <DialogContent className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <DialogContent className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {selectedService && (
               <>
                 <DialogHeader>
