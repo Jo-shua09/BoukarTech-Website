@@ -1,14 +1,23 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ArrowRight, Check } from "lucide-react";
-import {} from "lucide-react";
 import Layout from "@/components/Layout";
 import Hero from "@/components/sections/Hero";
 import { benefits, serviceDetailed } from "@/assets/data/data";
 
 const Services = () => {
+  const [selectedService, setSelectedService] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (service) => {
+    setSelectedService(service);
+    setIsModalOpen(true);
+  };
+
   return (
     <>
       <Helmet>
@@ -51,7 +60,7 @@ const Services = () => {
                       <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
                     </div>
                   </div>
-
+                  {/* 
                   <ul className="space-y-2 mb-6">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -59,13 +68,11 @@ const Services = () => {
                         {feature}
                       </li>
                     ))}
-                  </ul>
+                  </ul> */}
 
-                  <Button variant="outline" size="sm" asChild>
-                    <Link to="/contact">
-                      Learn More
-                      <ArrowRight size={16} className="ml-1" />
-                    </Link>
+                  <Button variant="outline" size="sm" onClick={() => openModal(service)}>
+                    Learn More
+                    <ArrowRight size={16} className="ml-1" />
                   </Button>
                 </motion.div>
               ))}
@@ -125,6 +132,45 @@ const Services = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* Service Modal */}
+        <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+          <DialogContent className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            {selectedService && (
+              <>
+                <DialogHeader>
+                  <DialogTitle className="flex items-center gap-3 text-2xl font-bold">
+                    <selectedService.icon size={32} className="text-primary" />
+                    {selectedService.title}
+                  </DialogTitle>
+                </DialogHeader>
+                <div className="space-y-6">
+                  <p className="text-muted-foreground leading-relaxed">{selectedService.description}</p>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-3">Key Features:</h4>
+                    <ul className="space-y-2">
+                      {selectedService.features.map((feature) => (
+                        <li key={feature} className="flex items-center gap-2 text-sm">
+                          <Check size={16} className="text-primary flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="flex justify-end">
+                    <Button asChild>
+                      <a href="https://calendly.com/boukartech" target="_blank" rel="noopener noreferrer">
+                        Book a Call
+                        <ArrowRight size={16} className="ml-2" />
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
       </Layout>
     </>
   );
