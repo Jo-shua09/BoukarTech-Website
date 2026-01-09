@@ -135,19 +135,19 @@ const Services = () => {
 
         {/* Service Modal */}
         <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-          <DialogContent className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 overflow-y-scroll">
+          <DialogContent className="max-w-4xl mx-auto px-4 max-h-[80vh] overflow-y-auto sm:px-6 lg:px-8">
             {selectedService && (
               <>
-                <DialogHeader>
-                  <DialogTitle className="flex items-center gap-3 text-2xl font-bold">
+                <DialogHeader className="h-fit">
+                  <DialogTitle className="flex items-center gap-3 text-xl md:text-2xl font-bold">
                     <selectedService.icon size={32} className="text-primary" />
                     {selectedService.title}
                   </DialogTitle>
                 </DialogHeader>
                 <div className="space-y-6">
-                  <p className="text-muted-foreground leading-relaxed">{selectedService.description}</p>
+                  <p className="text-muted-foreground md:text-lg text-base leading-relaxed">{selectedService.description}</p>
                   <div>
-                    <h4 className="text-lg font-semibold mb-3">Key Features:</h4>
+                    <h4 className=" text-base md:text-lg font-semibold mb-3">Key Features:</h4>
                     <ul className="space-y-2">
                       {selectedService.features.map((feature) => (
                         <li key={feature} className="flex items-center gap-2 text-sm">
