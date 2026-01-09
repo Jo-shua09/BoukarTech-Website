@@ -32,7 +32,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 inset-x-0 z-50">
       {/* Navbar Bar */}
-      <div className="bg-foreground/90 backdrop-blur-md border-border">
+      <div className="bg-foreground backdrop-blur-md border-border">
         <div className="container-custom">
           <nav className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
