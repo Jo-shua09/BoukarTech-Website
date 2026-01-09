@@ -135,7 +135,7 @@ const Services = () => {
 
         {/* Service Modal */}
         <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-          <DialogContent className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <DialogContent className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 overflow-y-scroll">
             {selectedService && (
               <>
                 <DialogHeader>
