@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Instagram, Youtube, Facebook } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import logo from "@/assets/images/logo3-bg.png";
+import logoIcon from "@/assets/images/logo-icon.png";
 import emailjs from "@emailjs/browser";
 
 const footerLinks = {
@@ -81,7 +81,7 @@ export default function Footer() {
     <footer className="bg-foreground text-background w-full overflow-hidden">
       {/* Newsletter */}
       <div className="border-b border-background/10">
-        <div className="container-custom py-12">
+        <div className="container-custom px-5 md:px-10 py-12">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div className="text-center lg:text-left">
               <h3 className="text-xl font-semibold">Join our Newsletter</h3>
@@ -105,11 +105,17 @@ export default function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="container-custom py-12">
+      <div className="container-custom px-5 md:px-10 py-12">
         <div className="grid gap-10 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {/* Logo & Social */}
           <div className="col-span-2 space-y-6">
-            <img loading="lazy" src={logo} alt="Boukartech Logo" className="w-40 max-w-full object-contain" />
+            <Link to="/" className="flex items-center gap-2 mb-2">
+              <img src={logoIcon} alt="BoukarTech" className="h-8 w-8 brightness-200" />
+              <span className="font-display font-bold text-xl">BoukarTech</span>
+            </Link>
+            <p className="text-background/60 text-sm leading-relaxed mb-6">
+              Empowering businesses worldwide with innovative technology and creative excellence.
+            </p>
 
             <div className="flex gap-4">
               {[

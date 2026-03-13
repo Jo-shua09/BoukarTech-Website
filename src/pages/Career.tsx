@@ -1,171 +1,33 @@
-import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Briefcase, Users, TrendingUp } from "lucide-react";
-import Layout from "@/components/Layout";
-import Hero from "@/components/sections/Hero";
-
-const openings = [
-  {
-    title: "Senior Frontend Developer",
-    type: "Full-time",
-    location: "Remote",
-    description: "We're looking for an experienced React developer to join our team.",
-  },
-  {
-    title: "UI/UX Designer",
-    type: "Full-time",
-    location: "Remote",
-    description: "Create beautiful and intuitive user experiences for our clients.",
-  },
-  {
-    title: "Social Media Manager",
-    type: "Full-time",
-    location: "Remote",
-    description: "Manage and grow social media presence for multiple brands.",
-  },
-  {
-    title: "Video Editor",
-    type: "Contract",
-    location: "Remote",
-    description: "Edit and produce high-quality video content for various platforms.",
-  },
-];
-
-const benefits = [
-  {
-    icon: Briefcase,
-    title: "Flexible Work",
-    description: "Work from anywhere with flexible hours that suit your lifestyle.",
-  },
-  {
-    icon: Users,
-    title: "Great Team",
-    description: "Join a diverse, talented team of professionals who support each other.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Growth Opportunities",
-    description: "Continuous learning and career advancement opportunities.",
-  },
-];
+import { Briefcase, Bell } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const Career = () => {
   return (
-    <>
-      <Helmet>
-        <title>Careers at Boukartech | Digital & Technology Jobs</title>
-        <meta
-          name="description"
-          content="Explore career opportunities at Boukartech. Join a growing digital and technology company offering roles in social media management, design, development, marketing, and tech consulting."
-        />
-      </Helmet>
+    <div className="min-h-screen bg-background overflow-x-hidden">
+      <Navbar />
 
-      <Layout>
-        {/* Hero Section */}
-        <Hero
-          title="Your talent matters to the"
-          cTitle="world!"
-          description="And we are here to appreciate it decently. Join our team of passionate innovators and help us shape the future of digital solutions."
-          buttonOne="Join our Team"
-          buttonTwo=""
-        />
-
-        {/* Benefits Section */}
-        <section className="py-16 bg-background">
-          <div className="container-custom">
-            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-              <h2 className="heading-lg text-foreground mb-4">
-                Why Work With <span className="text-primary">Us?</span>
-              </h2>
-            </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {benefits.map((benefit, index) => (
-                <motion.div
-                  key={benefit.title}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="text-center"
-                >
-                  <div className="w-16 h-16 rounded-2xl bg-accent flex items-center justify-center mx-auto mb-4">
-                    <benefit.icon size={32} className="text-primary" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">{benefit.title}</h3>
-                  <p className="text-muted-foreground">{benefit.description}</p>
-                </motion.div>
-              ))}
-            </div>
+      <section className="pt-28 md:pt-36 px-5 pb-16 min-h-[70vh] flex items-center justify-center">
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-lg">
+          <div className="w-20 h-20 rounded-2xl bg-secondary flex items-center justify-center mx-auto mb-6">
+            <Briefcase className="w-10 h-10 text-primary" />
           </div>
-        </section>
-
-        {/* Open Positions */}
-        {/* <section className="py-16 bg-secondary">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col md:flex-row md:items-center md:justify-between mb-12"
-          >
-            <div>
-              <h2 className="heading-lg text-foreground mb-2">
-                Open <span className="text-primary">Positions</span>
-              </h2>
-              <p className="text-muted-foreground">Find your next opportunity</p>
-            </div>
-            <Button variant="outlineBlue" className="mt-4 md:mt-0">
-              Check Open Positions
-            </Button>
-          </motion.div>
-
-          <div className="space-y-4">
-            {openings.map((job, index) => (
-              <motion.div
-                key={job.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-background border border-border rounded-xl p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 hover:shadow-md transition-shadow"
-              >
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-1">{job.title}</h3>
-                  <p className="text-muted-foreground text-sm mb-2">{job.description}</p>
-                  <div className="flex gap-2">
-                    <span className="text-xs bg-accent text-accent-foreground px-2 py-1 rounded-full">{job.type}</span>
-                    <span className="text-xs bg-secondary text-secondary-foreground px-2 py-1 rounded-full">{job.location}</span>
-                  </div>
-                </div>
-                <Button variant="outline" size="sm">
-                  Apply Now
-                  <ArrowRight size={16} className="ml-1" />
-                </Button>
-              </motion.div>
-            ))}
+          <h1 className="heading-lg mb-4">
+            Join Our <span className="text-gradient-blue">Team</span>
+          </h1>
+          <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+            We are currently refining our recruitment process to better support our growing team. New opportunities in design, development, and
+            digital marketing will be posted here soon.
+          </p>
+          <div className="inline-flex items-center gap-2 text-primary font-medium bg-primary/5 px-6 py-3 rounded-full border border-primary/10">
+            <Bell className="w-4 h-4" /> Coming Soon
           </div>
-        </div>
-      </section> */}
+        </motion.div>
+      </section>
 
-        {/* Join Us CTA */}
-        <section className="py-16 bg-muted">
-          <div className="container-custom text-center">
-            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="heading-md mb-4">Join Us!</h2>
-              <p className="body-md text-muted-foreground mb-8 max-w-xl mx-auto">
-                We are at the stage of fast growth, so if you like exciting jobs, that might be a match!
-              </p>
-              <Button variant="hero" size="xl" asChild>
-                <Link to="/contact">Get in Touch</Link>
-              </Button>
-            </motion.div>
-          </div>
-        </section>
-      </Layout>
-    </>
+      <Footer />
+    </div>
   );
 };
 

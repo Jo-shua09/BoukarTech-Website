@@ -1,23 +1,12 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { ArrowRight, Check } from "lucide-react";
 import Layout from "@/components/Layout";
-import Hero from "@/components/sections/Hero";
-import { benefits, serviceDetailed } from "@/assets/data/data";
+import { benefits } from "@/assets/data/data";
+import { ArrowRight, Check } from "lucide-react";
+import { serviceDetailed } from "./../assets/data/data";
 
 const Services = () => {
-  const [selectedService, setSelectedService] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = (service) => {
-    setSelectedService(service);
-    setIsModalOpen(true);
-  };
-
   return (
     <>
       <Helmet>
@@ -30,50 +19,39 @@ const Services = () => {
 
       <Layout>
         {/* Hero Section */}
-        <Hero
-          title="Our Branding"
-          cTitle="Solutions"
-          description="We offer a comprehensive suite of digital services designed to elevate your brand and drive business growth. From development to marketing, we've got you covered with solutions that deliver results."
-          buttonOne="Get Started"
-          buttonTwo=""
-        />
+        <section className="pt-28 md:pt-36 pb-16 md:pb-24 px-5">
+          <div className="max-w-7xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl mb-16">
+              <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-4">Our Services</span>
+              <h1 className="heading-xl mb-6">
+                Comprehensive <span className="text-gradient-blue">Digital Solutions</span>
+              </h1>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                We offer a comprehensive suite of digital services designed to elevate your brand and drive business growth. From development to
+                marketing, we've got you covered with solutions that deliver results. Get Started
+              </p>
+            </motion.div>
 
-        {/* Services Grid */}
-        <section className="py-16 lg:py-24 bg-background">
-          <div className="container-custom">
-            <div className="grid grid-cols-1 md:grid-cols-2  gap-5 md:gap-8">
-              {serviceDetailed.map((service, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {serviceDetailed.map((service, i) => (
                 <motion.div
                   key={service.title}
-                  initial={{ opacity: 0, y: 40 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="bg-card border border-border rounded-2xl p-6 md:p-8 hover:shadow-lg hover:border-primary/30 transition-all group"
+                  transition={{ delay: i * 0.05 }}
+                  className="group p-6 md:p-8 rounded-2xl border border-border hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all"
                 >
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors">
-                      <service.icon size={28} className="text-primary group-hover:text-primary-foreground transition-colors" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-foreground mb-2">{service.title}</h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">{service.description}</p>
-                    </div>
-                  </div>
-                  {/* 
-                  <ul className="space-y-2 mb-6">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Check size={16} className="text-primary flex-shrink-0" />
-                        {feature}
-                      </li>
+                  <service.icon className="w-10 h-10 text-primary mb-4" />
+                  <h3 className="font-display font-bold text-xl mb-3">{service.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">{service.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {service.features.map((f) => (
+                      <span key={f} className="text-xs px-3 py-1 rounded-full bg-secondary text-muted-foreground">
+                        {f}
+                      </span>
                     ))}
-                  </ul> */}
-
-                  <Button variant="outline" size="sm" onClick={() => openModal(service)}>
-                    Learn More
-                    <ArrowRight size={16} className="ml-1" />
-                  </Button>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -81,8 +59,8 @@ const Services = () => {
         </section>
 
         {/* Benefits Section */}
-        <section className="py-16 lg:py-24 bg-foreground text-background">
-          <div className="container-custom">
+        <section className="bg-foreground section-padding text-background">
+          <div className="max-w-7xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8">
               <h2 className="heading-lg mb-4">
                 Benefits of Working With <span className="text-primary">Boukartech</span>
@@ -117,60 +95,28 @@ const Services = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 lg:py-20 bg-muted mt-16 lg:mt-24">
-          <div className="container-custom text-center">
-            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="heading-md text-foreground mb-4">Ready to get started?</h2>
-              <p className="body-md text-muted-foreground mb-8 max-w-xl mx-auto">Let's discuss how our services can help transform your business.</p>
-              <Button variant="hero" size="lg" asChild>
-                <Link to="/contact">
-                  Contact Us Today
-                  <ArrowRight className="ml-2" size={20} />
-                </Link>
-              </Button>
+        {/* CTA */}
+        <section className="section-padding">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-foreground rounded-3xl p-10 md:p-16"
+            >
+              <h2 className="heading-lg text-background mb-4">
+                Need a Custom <span className="text-primary">Solution?</span>
+              </h2>
+              <p className="text-background/60 mb-8">Let's discuss your project requirements and create something tailored to your needs.</p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-2.5 rounded-full font-medium hover:bg-primary/90 transition-all"
+              >
+                Contact Us <ArrowRight className="w-4 h-4" />
+              </Link>
             </motion.div>
           </div>
         </section>
-
-        {/* Service Modal */}
-        <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-          <DialogContent className="max-w-4xl mx-auto px-4 max-h-[80vh] overflow-y-auto sm:px-6 lg:px-8">
-            {selectedService && (
-              <>
-                <DialogHeader className="h-fit">
-                  <DialogTitle className="flex items-center gap-3 text-xl md:text-2xl font-bold">
-                    <selectedService.icon size={32} className="text-primary" />
-                    {selectedService.title}
-                  </DialogTitle>
-                </DialogHeader>
-                <div className="space-y-6">
-                  <p className="text-muted-foreground md:text-lg text-base leading-relaxed">{selectedService.description}</p>
-                  <div>
-                    <h4 className=" text-base md:text-lg font-semibold mb-3">Key Features:</h4>
-                    <ul className="space-y-2">
-                      {selectedService.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-2 text-sm">
-                          <Check size={16} className="text-primary flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex justify-end">
-                    <Button asChild>
-                      <a href="https://calendly.com/boukartech" target="_blank" rel="noopener noreferrer">
-                        Book a Call
-                        <ArrowRight size={16} className="ml-2" />
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-              </>
-            )}
-          </DialogContent>
-        </Dialog>
       </Layout>
     </>
   );
