@@ -70,7 +70,7 @@ const Index = () => {
         <section className="pt-28 md:pt-36 px-5 pb-0 min-h-[90vh] flex items-center">
           <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-              <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-6">Digital Agency — Since 2019</span>
+              <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-6">Digital Agency — Since 2023</span>
               <h1 className="heading-xl mb-6">
                 Leading Force
                 <br />
