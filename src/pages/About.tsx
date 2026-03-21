@@ -15,7 +15,7 @@ import { values } from "@/assets/data/data";
 const team = [
   {
     name: "Ndoula Philip",
-    role: "Founder & Product Strategist",
+    role: "Founder/CEO",
     img: phillipImg,
     bio: "Visionary leader and digital marketing expert driving growth through data-driven strategies.",
   },
