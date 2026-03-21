@@ -75,7 +75,7 @@ const Contact = () => {
       </Helmet>
 
       <Layout>
-        <section className="pt-28 md:pt-36 pb-16 md:pb-24 px-5 md:px-10 lg:px-20">
+        <section className="pt-28 md:pt-36 pb-16 md:pb-24 px-5">
           <div className="max-w-7xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl mb-16">
               <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-4">Contact Us</span>
