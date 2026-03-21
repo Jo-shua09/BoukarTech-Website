@@ -35,7 +35,7 @@ const team = [
     name: "Joshua Onyeka",
     role: "Lead Software Engineer (React/Flutter)",
     img: joshuaImg,
-    bio: "Software developer building scalable, high-performance web and mobile applications with modern technologies.",
+    bio: "Software engineer building scalable, high-performance web and mobile applications with modern technologies.",
   },
 ];
 
