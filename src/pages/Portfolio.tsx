@@ -2,49 +2,45 @@ import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
 import Layout from "@/components/Layout";
+import sholadishotel from "@/assets/images/sholadishotel.jpg";
+import ayokastudio from "@/assets/images/ayokastudio.jpg";
+import ashywienish from "@/assets/images/ashywienish.jpg";
+import judeiria from "@/assets/images/judeiria.jpg";
 
-const dummyProjects = [
+const portfolioProjects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    category: "Web Development",
-    image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800&auto=format&fit=crop",
-    description: "A modern, fully responsive e-commerce platform built with robust payment integrations.",
+    title: "Sholadis Executive Hotel",
+    category: "Hospitality Platform",
+    image: sholadishotel,
+    description: "A luxury hospitality booking platform for a premier hotel in Ibadan. Built for high-speed performance and premium user experience.",
+    link: "https://sholadishotel.com/",
   },
   {
     id: 2,
-    title: "Social Networking App",
-    category: "Mobile Apps",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop",
-    description: "A cross-platform mobile application built to seamlessly connect professionals.",
+    title: "Ayoka Films",
+    category: "Creative Media",
+    image: ayokastudio,
+    description:
+      "A cinematic portfolio and media hub for a leading production studio, designed to showcase high-fidelity video content and studio services.",
+    link: "https://ayokastudio.vercel.app/",
   },
   {
     id: 3,
-    title: "Brand Identity Redesign",
-    category: "Graphic Design",
-    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800&auto=format&fit=crop",
-    description: "A complete visual identity overhaul and branding strategy for a leading tech startup.",
+    title: "Ashy Wineish Farms",
+    category: "Agribusiness",
+    image: ashywienish,
+    description: "An agricultural commerce and sustainability platform connecting farm-to-table produce with modern digital consumers.",
+    link: "https://ashywineish.vercel.app/",
   },
   {
     id: 4,
-    title: "Modern Corporate Website",
-    category: "Web Development",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
-    description: "A professional, lightning-fast, and SEO-optimized corporate site for global clients.",
-  },
-  {
-    id: 5,
-    title: "Product Launch Video",
-    category: "Video Editing",
-    image: "https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=800&auto=format&fit=crop",
-    description: "High-impact promotional and cinematic video editing for a flagship product launch.",
-  },
-  {
-    id: 6,
-    title: "Targeted Ad Campaign",
-    category: "Ads Specialist",
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop",
-    description: "Data-driven advertising campaign strategy resulting in an incredible 300% ROI.",
+    title: "Jude Iria",
+    category: "Business Strategy",
+    image: judeiria,
+    description:
+      "A high-conversion personal branding and business strategy site for a top growth consultant, focusing on clarity and professional credibility.",
+    link: "https://judeiria.vercel.app/",
   },
 ];
 
@@ -70,19 +66,23 @@ export default function Portfolio() {
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-              {dummyProjects.map((project, index) => (
-                <motion.div
+              {portfolioProjects.map((project, index) => (
+                <motion.a
                   key={project.id}
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group rounded-2xl overflow-hidden bg-background border border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
+                  className="group rounded-2xl overflow-hidden bg-background border border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
                 >
                   <div className="aspect-video overflow-hidden relative">
                     <img
                       src={project.image}
                       alt={project.title}
+                      loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm text-foreground text-xs font-medium px-3 py-1 rounded-full shadow-sm">
@@ -93,7 +93,7 @@ export default function Portfolio() {
                     <h3 className="text-xl font-bold mb-3">{project.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed flex-1">{project.description}</p>
                   </div>
-                </motion.div>
+                </motion.a>
               ))}
             </div>
           </div>

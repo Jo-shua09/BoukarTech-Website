@@ -7,9 +7,8 @@ import { Check, Shield, TrendingUp, Lock, Lightbulb, Megaphone, Smartphone, Code
 
 export const services = [
   {
-    title: "Social Media Management",
-    description:
-      "We create engaging content, manage accounts, run targeted campaigns, and analyze performance to grow visibility, build communities, and drive real results.",
+    title: "Software Development in Ikorodu & Lagos",
+    description: "High-end web development, AI integration, and robust software solutions crafted to elevate local and global digital brands.",
   },
   {
     title: "Mobile App Development",
@@ -70,10 +69,10 @@ export const values = [
 ];
 
 export const team = [
-  { name: "Ndoula Philip", role: "Founder / CEO", image: phillipImg },
-  { name: "Obafaye Lydia", role: "Content Writer & Team Lead", image: lydiaImg },
-  { name: "Omotoye Daniel", role: "Brand Designer/Team Lead", image: danielImg },
-  { name: "Joshua Onyeka", role: "Web Developer/Team Lead", image: Joshua },
+  { name: "Ndoula Philip", role: "Founder & Product Strategist", image: phillipImg },
+  { name: "Obafaye Lydia", role: "Lead Content & UX Strategist", image: lydiaImg },
+  { name: "Omotoye Daniel", role: "Creative Media Architect", image: danielImg },
+  { name: "Joshua Onyeka", role: "Lead Software Engineer (React/Flutter)", image: Joshua },
 ];
 
 export const faq = [

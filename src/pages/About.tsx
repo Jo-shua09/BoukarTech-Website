@@ -15,25 +15,25 @@ import { values } from "@/assets/data/data";
 const team = [
   {
     name: "Ndoula Philip",
-    role: "Founder/CEO",
+    role: "Founder & Product Strategist",
     img: phillipImg,
     bio: "Visionary leader and digital marketing expert driving growth through data-driven strategies.",
   },
   {
     name: "Obafaye Lydia",
-    role: "Content Writer/Team Lead",
+    role: "Lead Content & UX Strategist",
     img: jessicaImg,
     bio: "Creative storyteller crafting compelling narratives and managing high-performing content teams.",
   },
   {
     name: "Omotoye Daniel",
-    role: "Brand Designer/Team Lead",
+    role: "Creative Media Architect",
     img: danielImg,
     bio: "Visual strategist specializing in creating impactful brand identities and unforgettable design experiences.",
   },
   {
     name: "Joshua Onyeka",
-    role: "Web Developer/Team Lead",
+    role: "Lead Software Engineer (React/Flutter)",
     img: joshuaImg,
     bio: "Software developer building scalable, high-performance web and mobile applications with modern technologies.",
   },

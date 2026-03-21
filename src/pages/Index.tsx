@@ -14,43 +14,43 @@ import Layout from "@/components/Layout";
 const services = [
   {
     num: "01",
-    title: "Web Development",
-    desc: "Modern, responsive, and secure websites including e-commerce, corporate sites, and portfolios with top-notch performance and design.",
+    title: "Software Development in Ikorodu, Lagos",
+    desc: "High-end web development, AI integration, and robust software solutions crafted to elevate local and global digital brands.",
   },
   {
     num: "02",
-    title: "Mobile App Development",
-    desc: "User-friendly, high-performing mobile applications for Android and iOS, built from concept to deployment to help businesses scale.",
+    title: "Hospitality Platforms",
+    desc: "Custom booking engines and luxury hospitality platforms designed for high-speed performance and a premium user experience.",
   },
   {
     num: "03",
-    title: "Social Media Management",
-    desc: "We create engaging content, manage accounts, run targeted campaigns, and analyze performance to grow visibility and drive results.",
+    title: "Agribusiness Platforms",
+    desc: "Agricultural commerce and sustainability platforms seamlessly connecting farm-to-table produce with modern digital consumers.",
   },
   {
     num: "04",
-    title: "Graphic Design",
-    desc: "Creative visuals including branding, logos, flyers, social media graphics, and full design systems that leave lasting impressions.",
+    title: "Creative Media & Studios",
+    desc: "Cinematic portfolios and robust media hubs designed to showcase high-fidelity video content and studio services.",
   },
   {
     num: "05",
-    title: "Video Editing",
-    desc: "Professional video editing that transforms raw footage into impactful promotional content, ads, and event highlights.",
+    title: "AI-Driven Solutions",
+    desc: "Innovative AI integrations that optimize processes, from smart recruitment systems to automated business workflows.",
   },
   {
     num: "06",
-    title: "Livestreaming",
-    desc: "High-quality livestreaming for events, conferences, webinars, and product launches with smooth broadcasting and professional setups.",
+    title: "Mobile App Development",
+    desc: "Cross-platform mobile applications (Flutter) prioritizing responsive user interfaces and high-performance functionality.",
   },
   {
     num: "07",
     title: "Hosting & Domain",
-    desc: "Reliable and secure web hosting with domain registration, scalable infrastructure, and technical support to keep businesses online 24/7.",
+    desc: "Reliable web hosting with domain registration, scalable infrastructure, and technical support to keep your digital solutions online.",
   },
   {
     num: "08",
-    title: "Ads Specialist",
-    desc: "Strategic advertising campaigns across Google, Meta, and more that maximize ROI and drive conversions for your business.",
+    title: "Ads & Digital Growth",
+    desc: "Strategic campaigns across search and social platforms that maximize ROI, focusing on professional credibility and clarity.",
   },
 ];
 
@@ -58,10 +58,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Boukartech – Digital Growth, Technology Solutions & Career Opportunities</title>
+        <title>Boukartech Solutions Ltd | Leading Software Development Company in Lagos</title>
         <meta
           name="description"
-          content="Boukartech is a digital growth and technology company helping businesses scale through social media management, website and app development, ads, livestreaming, tech consulting, and career opportunities in tech and digital services."
+          content="Boukartech Solutions Ltd provides high-end web development, AI integration, and mobile app solutions (Flutter) in Nigeria. Experts in React, Next.js, and scaling digital brands."
         />
       </Helmet>
 
@@ -77,8 +77,8 @@ const Index = () => {
                 in the <span className="text-gradient-blue">Digital Realm</span>
               </h1>
               <p className="text-muted-foreground text-base md:text-lg max-w-lg leading-relaxed mb-8">
-                Our vision is to become the leading digital solutions provider, empowering businesses worldwide with innovative technology and
-                creative excellence.
+                Engineering the future of digital business. From AI-driven recruitment to luxury hospitality platforms, we build high-performance
+                solutions that scale.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
