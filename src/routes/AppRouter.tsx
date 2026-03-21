@@ -11,6 +11,7 @@ import NotFound from "@/pages/NotFound";
 import { Toaster } from "@/components/ui/toaster";
 import ScrollToTop from "@/components/ScrollToTop";
 import Blog from "@/pages/Blog";
+import Portfolio from "@/pages/Portfolio";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const AppRouter = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/career" element={<Career />} />
           <Route path="/contact" element={<Contact />} />
