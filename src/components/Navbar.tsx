@@ -32,7 +32,7 @@ const Navbar = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-5 ${
           scrolled ? "bg-background shadow-sm border-b border-border lg:bg-background/95 lg:backdrop-blur-md" : "bg-background lg:bg-transparent"
         } lg:border-none`}
       >
