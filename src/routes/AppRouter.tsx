@@ -12,6 +12,7 @@ import { Toaster } from "@/components/ui/toaster";
 import ScrollToTop from "@/components/ScrollToTop";
 import Blog from "@/pages/Blog";
 import Portfolio from "@/pages/Portfolio";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const AppRouter = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <GoogleAnalytics />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
