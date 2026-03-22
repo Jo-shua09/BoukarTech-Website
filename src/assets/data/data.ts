@@ -7,37 +7,45 @@ import { Check, Shield, TrendingUp, Lock, Lightbulb, Megaphone, Smartphone, Code
 
 export const services = [
   {
-    title: "Software Development in Ikorodu & Lagos",
-    description: "High-end web development, AI integration, and robust software solutions crafted to elevate local and global digital brands.",
+    num: 1,
+    title: "Software Development",
+    desc: "High-end web development, AI integration, and robust software solutions crafted to elevate local and global digital brands.",
   },
   {
+    num: 2,
     title: "Mobile App Development",
-    description: "User-friendly, high-performing mobile applications for Android and iOS, built from concept to deployment to help businesses scale.",
+    desc: "User-friendly, high-performing mobile applications for Android and iOS, built from concept to deployment to help businesses scale.",
   },
   {
+    num: 3,
     title: "Web Development",
-    description:
-      "Modern, responsive, and secure websites including e-commerce, corporate sites, and portfolios with top-notch performance and design.",
+    desc: "Modern, responsive, and secure websites including e-commerce, corporate sites, and portfolios with top-notch performance and design.",
   },
   {
+    num: 4,
     title: "Livestreaming Solutions",
-    description:
-      "High-quality livestreaming for events, conferences, webinars, and product launches with smooth broadcasting and professional setups.",
+    desc: "High-quality livestreaming for events, conferences, webinars, and product launches with smooth broadcasting and professional setups.",
   },
   {
+    num: 5,
     title: "Graphic Design",
-    description: "Creative visuals including branding, logos, flyers, social media graphics, and full design systems that leave lasting impressions.",
+    desc: "Creative visuals including branding, logos, flyers, social media graphics, and full design systems that leave lasting impressions.",
   },
   {
+    num: 6,
     title: "Video Editing",
-    description: "Professional video editing that transforms raw footage into impactful promotional content, ads, and event highlights.",
+    desc: "Professional video editing that transforms raw footage into impactful promotional content, ads, and event highlights.",
   },
   {
+    num: 7,
     title: "Hosting & Domain Services",
-    description:
-      "Reliable and secure web hosting with domain registration, scalable infrastructure, and technical support to keep businesses online 24/7.",
+    desc: "Reliable and secure web hosting with domain registration, scalable infrastructure, and technical support to keep businesses online 24/7.",
   },
-  { title: "Ads Specialist", description: "Strategic advertising campaigns that maximize ROI and conversions." },
+  {
+    num: 8,
+    title: "Ads Specialist",
+    desc: "Strategic advertising campaigns that maximize ROI and conversions.",
+  },
 ];
 
 export const values = [

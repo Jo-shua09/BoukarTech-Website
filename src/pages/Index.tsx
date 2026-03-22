@@ -10,34 +10,7 @@ import visionImg from "@/assets/images/vision.png";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { faq } from "@/assets/data/data";
 import Layout from "@/components/Layout";
-
-const services = [
-  {
-    num: "01",
-    title: "Software Development",
-    desc: "High-end web development, AI integration, and robust software solutions crafted to elevate local and global digital brands.",
-  },
-  {
-    num: "02",
-    title: "Creative Media & Studios",
-    desc: "Cinematic portfolios and robust media hubs designed to showcase high-fidelity video content and studio services.",
-  },
-  {
-    num: "03",
-    title: "Mobile App Development",
-    desc: "Cross-platform mobile applications (Flutter) prioritizing responsive user interfaces and high-performance functionality.",
-  },
-  {
-    num: "04",
-    title: "Hosting & Domain",
-    desc: "Reliable web hosting with domain registration, scalable infrastructure, and technical support to keep your digital solutions online.",
-  },
-  {
-    num: "05",
-    title: "Ads & Digital Growth",
-    desc: "Strategic campaigns across search and social platforms that maximize ROI, focusing on professional credibility and clarity.",
-  },
-];
+import { services } from "../assets/data/data";
 
 const Index = () => {
   return (
