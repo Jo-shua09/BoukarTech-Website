@@ -14,41 +14,26 @@ import Layout from "@/components/Layout";
 const services = [
   {
     num: "01",
-    title: "Software Development in Ikorodu, Lagos",
+    title: "Software Development",
     desc: "High-end web development, AI integration, and robust software solutions crafted to elevate local and global digital brands.",
   },
   {
     num: "02",
-    title: "Hospitality Platforms",
-    desc: "Custom booking engines and luxury hospitality platforms designed for high-speed performance and a premium user experience.",
-  },
-  {
-    num: "03",
-    title: "Agribusiness Platforms",
-    desc: "Agricultural commerce and sustainability platforms seamlessly connecting farm-to-table produce with modern digital consumers.",
-  },
-  {
-    num: "04",
     title: "Creative Media & Studios",
     desc: "Cinematic portfolios and robust media hubs designed to showcase high-fidelity video content and studio services.",
   },
   {
-    num: "05",
-    title: "AI-Driven Solutions",
-    desc: "Innovative AI integrations that optimize processes, from smart recruitment systems to automated business workflows.",
-  },
-  {
-    num: "06",
+    num: "03",
     title: "Mobile App Development",
     desc: "Cross-platform mobile applications (Flutter) prioritizing responsive user interfaces and high-performance functionality.",
   },
   {
-    num: "07",
+    num: "04",
     title: "Hosting & Domain",
     desc: "Reliable web hosting with domain registration, scalable infrastructure, and technical support to keep your digital solutions online.",
   },
   {
-    num: "08",
+    num: "05",
     title: "Ads & Digital Growth",
     desc: "Strategic campaigns across search and social platforms that maximize ROI, focusing on professional credibility and clarity.",
   },
