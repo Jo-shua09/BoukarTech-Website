@@ -1,50 +1,20 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
 import Layout from "@/components/Layout";
-import sholadishotel from "@/assets/images/sholadishotel.jpg";
-import ayokastudio from "@/assets/images/ayokastudio.jpg";
-import ashywienish from "@/assets/images/ashywienish.jpg";
-import judeiria from "@/assets/images/judeiria.jpg";
+import { portfolioProjects } from "@/assets/data/portfolio";
 
-const portfolioProjects = [
-  {
-    id: 1,
-    title: "Sholadis Executive Hotel",
-    category: "Hospitality Platform",
-    image: sholadishotel,
-    description: "A luxury hospitality booking platform for a premier hotel in Ibadan. Built for high-speed performance and premium user experience.",
-    link: "https://sholadishotel.com/",
-  },
-  {
-    id: 2,
-    title: "Ayoka Films",
-    category: "Creative Media",
-    image: ayokastudio,
-    description:
-      "A cinematic portfolio and media hub for a leading production studio, designed to showcase high-fidelity video content and studio services.",
-    link: "https://ayokastudio.vercel.app/",
-  },
-  {
-    id: 3,
-    title: "Ashy Wineish Farms",
-    category: "Agribusiness",
-    image: ashywienish,
-    description: "An agricultural commerce and sustainability platform connecting farm-to-table produce with modern digital consumers.",
-    link: "https://ashywineish.vercel.app/",
-  },
-  {
-    id: 4,
-    title: "Jude Iria",
-    category: "Business Strategy",
-    image: judeiria,
-    description:
-      "A high-conversion personal branding and business strategy site for a top growth consultant, focusing on clarity and professional credibility.",
-    link: "https://judeiria.vercel.app/",
-  },
-];
+const tabs = ["All", "Websites", "LinkedIn Optimization"];
 
 export default function Portfolio() {
+  const [activeTab, setActiveTab] = useState("All");
+
+  const filteredProjects = portfolioProjects.filter((project) => {
+    if (activeTab === "All") return true;
+    return project.type === activeTab;
+  });
+
   return (
     <>
       <Helmet>
@@ -65,37 +35,56 @@ export default function Portfolio() {
               description="Take a look at some of our recent work across various industries and disciplines."
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-              {portfolioProjects.map((project, index) => (
-                <motion.a
-                  key={project.id}
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group rounded-2xl overflow-hidden bg-background border border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
+            <div className="flex flex-wrap justify-center gap-4 mt-8 mb-12">
+              {tabs.map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                    activeTab === tab ? "bg-primary text-primary-foreground shadow-md" : "bg-secondary text-secondary-foreground hover:bg-primary/10"
+                  }`}
                 >
-                  <div className="aspect-video overflow-hidden relative">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm text-foreground text-xs font-medium px-3 py-1 rounded-full shadow-sm">
-                      {project.category}
-                    </div>
-                  </div>
-                  <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="text-xl font-bold mb-3">{project.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed flex-1">{project.description}</p>
-                  </div>
-                </motion.a>
+                  {tab}
+                </button>
               ))}
             </div>
+
+            <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <AnimatePresence mode="popLayout">
+                {filteredProjects.map((project, index) => (
+                  <motion.a
+                    layout
+                    key={project.id}
+                    href={project.link !== "#" ? project.link : undefined}
+                    target={project.link !== "#" ? "_blank" : undefined}
+                    rel={project.link !== "#" ? "noopener noreferrer" : undefined}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.3 }}
+                    className={`group rounded-2xl overflow-hidden bg-background border border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 flex flex-col ${
+                      project.link === "#" ? "cursor-default" : "hover:-translate-y-1"
+                    }`}
+                  >
+                    <div className="aspect-video overflow-hidden relative">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm text-foreground text-xs font-medium px-3 py-1 rounded-full shadow-sm">
+                        {project.category}
+                      </div>
+                    </div>
+                    <div className="p-6 flex-1 flex flex-col">
+                      <h3 className="text-xl font-bold mb-3">{project.title}</h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed flex-1">{project.description}</p>
+                    </div>
+                  </motion.a>
+                ))}
+              </AnimatePresence>
+            </motion.div>
           </div>
         </div>
       </Layout>

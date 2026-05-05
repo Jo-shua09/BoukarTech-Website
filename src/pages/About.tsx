@@ -88,7 +88,7 @@ const About = () => {
             <AnimatedCounter end={15} label="Expert Team Members" />
             <AnimatedCounter end={60} suffix="%" label="Team Growth per Year" />
             <AnimatedCounter end={5} label="Years of Experience" />
-            <AnimatedCounter end={20} label="Happy Clients" />
+            <AnimatedCounter end={21} label="Happy Clients" />
           </div>
         </section>
 
