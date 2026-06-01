@@ -11,6 +11,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { faq } from "@/assets/data/data";
 import Layout from "@/components/Layout";
 import { services } from "../assets/data/data";
+import Testimonials from "@/components/Testimonials";
 
 const Index = () => {
   return (
@@ -165,6 +166,9 @@ const Index = () => {
             <AnimatedCounter end={21} label="Happy Clients" />
           </div>
         </section>
+
+        {/* Testimonials */}
+        <Testimonials />
 
         {/* FAQ */}
         <section className="section-padding">

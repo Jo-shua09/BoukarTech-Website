@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
 import Layout from "@/components/Layout";
 import { portfolioProjects } from "@/assets/data/portfolio";
+import ClickToPlayVideo from "@/components/ClickToPlayVideo";
 
 const tabs = ["All", "Websites", "LinkedIn Optimization"];
 
@@ -67,12 +68,24 @@ export default function Portfolio() {
                     }`}
                   >
                     <div className="aspect-video overflow-hidden relative">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
+                      {project.id === 1 ? (
+                        <div className="absolute inset-0">
+                          {/* Click-to-play video (src loads only on click) */}
+                          {/* Video not auto-loading for fast initial portfolio load */}
+                          <ClickToPlayVideo
+                            videoSrc={"/assets/media/livestreating.mp4"}
+                            posterSrc={project.image}
+                            className="w-full h-full focus:outline-none"
+                          />
+                        </div>
+                      ) : (
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          loading="lazy"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                      )}
                       <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm text-foreground text-xs font-medium px-3 py-1 rounded-full shadow-sm">
                         {project.category}
                       </div>
