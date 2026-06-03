@@ -11,7 +11,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { faq } from "@/assets/data/data";
 import Layout from "@/components/Layout";
 import { services } from "../assets/data/data";
-import Testimonials from "@/components/Testimonials";
+import livestreamVideo from "@/assets/media/livestreating.mp4";
 
 const Index = () => {
   return (
@@ -167,8 +167,21 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Testimonials */}
-        <Testimonials />
+        {/* Portfolio */}
+        <section id="portfolio" className="w-full section-padding">
+          <div className="max-w-3xl mx-auto px-5 mb-8 md:mb-12">
+            <SectionHeading tag="Portfolio" title="Our Featured" highlight="Work" />
+          </div>
+          <div className="w-full h-[60vh] md:h-screen relative bg-black">
+            <video className="w-full h-full object-cover cursor-pointer" controls preload="none">
+              <source src={livestreamVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </section>
+
+        {/* Testimonials
+        <Testimonials /> */}
 
         {/* FAQ */}
         <section className="section-padding">
