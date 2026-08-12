@@ -6,6 +6,8 @@ import kenavidcouture from "@/assets/images/kenavid-couture.jpg";
 import kenavidmonogram from "@/assets/images/kenavid-monogram.jpg";
 import linkedin1 from "@/assets/images/linkedin-1.jpg";
 import linkedin2 from "@/assets/images/linkedin-2.jpg";
+import moTutor from "@/assets/images/mo-tutor.jpg";
+import travolaglobal from "@/assets/images/travolaglobal.jpg";
 
 export const portfolioProjects = [
   {
@@ -64,6 +66,26 @@ export const portfolioProjects = [
     image: kenavidmonogram,
     description: "A professional corporate branding site showcasing high-quality custom embroidery, monogramming, and bespoke print services.",
     link: "https://www.kenavidmonogram.com/",
+  },
+  {
+    id: 7,
+    title: "Mo The Lesson Tutor",
+    category: "Educational Platform",
+    type: "Websites",
+    image: moTutor,
+    description:
+      "A personalized online tutoring platform offering expert help in Math, English, and Science for K-12 students, designed to boost confidence and academic performance.",
+    link: "https://www.mo-thelessontutor.com",
+  },
+  {
+    id: 8,
+    title: "Travola Global Consults",
+    category: "Travel & Education",
+    type: "Websites",
+    image: travolaglobal,
+    description:
+      "A professional consultancy website offering international education, travel, and business solutions, including study abroad programs and visa assistance.",
+    link: "https://travolaglobalconsults.com",
   },
   {
     id: 7,
