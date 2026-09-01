@@ -99,21 +99,24 @@ export default function AdminDashboard() {
     <div className="min-h-screen bg-background pb-16">
       <header className="bg-card border-b border-border sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <h1 className="text-xl font-bold text-foreground">Admin Dashboard</h1>
-          <button onClick={handleLogout} className="flex items-center text-muted-foreground hover:text-foreground transition-colors">
-            <LogOut className="w-5 h-5 mr-2" /> Logout
+          <h1 className="text-lg sm:text-xl font-bold text-foreground">Admin Dashboard</h1>
+          <button
+            onClick={handleLogout}
+            className="flex items-center text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <LogOut className="w-4 h-4 sm:w-5 sm:h-5 mr-2" /> Logout
           </button>
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl font-bold text-foreground">Manage Events</h2>
+        <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center mb-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-foreground">Manage Events</h2>
           <button
             onClick={openCreateModal}
-            className="flex items-center px-5 py-2.5 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-sm"
+            className="flex items-center justify-center px-4 sm:px-5 py-2.5 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-sm text-sm sm:text-base"
           >
-            <PlusCircle className="w-5 h-5 mr-2" /> Upload Event
+            <PlusCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-2" /> Upload Event
           </button>
         </div>
 
@@ -129,18 +132,20 @@ export default function AdminDashboard() {
                 key={event.id}
                 className="flex flex-col sm:flex-row sm:items-center justify-between p-5 border-b border-border last:border-0 hover:bg-secondary/20 transition-colors"
               >
-                <div className="mb-4 sm:mb-0">
-                  <div className="flex items-center space-x-3 mb-1">
-                    <h3 className="text-lg font-semibold text-foreground">{event.title}</h3>
+                <div className="mb-4 sm:mb-0 min-w-0 flex-1">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-1">
+                    <h3 className="text-base sm:text-lg font-semibold text-foreground break-words">{event.title}</h3>
                     {event.is_completed ? (
-                      <span className="px-2.5 py-0.5 rounded-full bg-secondary text-secondary-foreground text-xs font-medium border border-border">
+                      <span className="px-2.5 py-0.5 rounded-full bg-secondary text-secondary-foreground text-[10px] sm:text-xs font-medium border border-border whitespace-nowrap">
                         Past Event
                       </span>
                     ) : (
-                      <span className="px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">Active</span>
+                      <span className="px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-700 text-[10px] sm:text-xs font-medium whitespace-nowrap">
+                        Active
+                      </span>
                     )}
                   </div>
-                  <p className="text-sm text-muted-foreground">Starts: {formatDate(event.start_date)}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Starts: {formatDate(event.start_date)}</p>
                 </div>
 
                 <div className="flex items-center space-x-3">
