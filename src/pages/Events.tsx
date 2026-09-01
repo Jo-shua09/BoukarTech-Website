@@ -12,6 +12,7 @@ export default function Events() {
   const [events, setEvents] = useState<AppEvent[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedEvent, setSelectedEvent] = useState<AppEvent | null>(null);
+  const [visiblePastCount, setVisiblePastCount] = useState(6);
 
   useEffect(() => {
     const fetchPublicEvents = async () => {
@@ -25,7 +26,13 @@ export default function Events() {
     fetchPublicEvents();
   }, []);
 
+  useEffect(() => {
+    setVisiblePastCount(6);
+  }, [activeTab]);
+
   const filteredEvents = events.filter((event) => (activeTab === "upcoming" ? !event.is_completed : event.is_completed));
+  const visibleEvents = activeTab === "past" ? filteredEvents.slice(0, visiblePastCount) : filteredEvents;
+  const hasMorePastEvents = activeTab === "past" && visiblePastCount < filteredEvents.length;
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("en-US", {
@@ -91,10 +98,10 @@ export default function Events() {
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {filteredEvents.length === 0 ? (
+                  {visibleEvents.length === 0 ? (
                     <div className="col-span-full text-center py-12 text-muted-foreground">No {activeTab} events found.</div>
                   ) : (
-                    filteredEvents.map((event) => (
+                    visibleEvents.map((event) => (
                       <div
                         key={event.id}
                         onClick={() => setSelectedEvent(event)}
@@ -143,6 +150,18 @@ export default function Events() {
                       </div>
                     ))
                   )}
+                </div>
+              )}
+
+              {activeTab === "past" && hasMorePastEvents && (
+                <div className="mt-8 flex justify-center">
+                  <button
+                    type="button"
+                    onClick={() => setVisiblePastCount((count) => count + 6)}
+                    className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium shadow-sm hover:bg-primary/90 transition-colors"
+                  >
+                    Load More
+                  </button>
                 </div>
               )}
             </div>
