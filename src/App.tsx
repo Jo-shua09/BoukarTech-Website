@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import AppRouter from "./routes/AppRouter";
 import Loader from "./components/Loader";
-import WhatsAppButton from "./components/WhatsAppButton";
-import GoogleAnalytics from "./components/GoogleAnalytics";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -11,16 +9,5 @@ export default function App() {
     setIsLoading(false);
   };
 
-  return (
-    <div>
-      {isLoading ? (
-        <Loader onLoadingComplete={handleLoadingComplete} />
-      ) : (
-        <>
-          <AppRouter />
-          <WhatsAppButton />
-        </>
-      )}
-    </div>
-  );
+  return <div>{isLoading ? <Loader onLoadingComplete={handleLoadingComplete} /> : <AppRouter />}</div>;
 }
