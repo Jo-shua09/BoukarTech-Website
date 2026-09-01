@@ -106,20 +106,20 @@ export default function EventFormModal({ isOpen, onClose, onEventAdded, eventToE
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-3 sm:px-4">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         className="bg-card w-full max-w-2xl rounded-2xl shadow-xl overflow-hidden flex flex-col max-h-[90vh]"
       >
-        <div className="flex justify-between items-center p-6 border-b border-border">
-          <h2 className="text-xl font-bold text-foreground">{eventToEdit ? "Edit Event" : "Upload New Event"}</h2>
-          <button onClick={onClose} className="text-muted-foreground hover:text-foreground">
-            <X className="w-6 h-6" />
+        <div className="flex justify-between items-center p-4 sm:p-6 border-b border-border">
+          <h2 className="text-lg sm:text-xl font-bold text-foreground">{eventToEdit ? "Edit Event" : "Upload New Event"}</h2>
+          <button onClick={onClose} className="text-muted-foreground hover:text-foreground p-1">
+            <X className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6 overflow-y-auto space-y-5">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-6 overflow-y-auto space-y-4 sm:space-y-5">
           <div>
             <label className="block text-sm font-medium text-foreground mb-1">Event Title *</label>
             <input
@@ -127,7 +127,7 @@ export default function EventFormModal({ isOpen, onClose, onEventAdded, eventToE
               required
               value={formData.title}
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-              className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground focus:ring-2 focus:ring-primary outline-none"
+              className="w-full px-3 sm:px-4 py-2.5 bg-background border border-border rounded-lg text-sm sm:text-base text-foreground focus:ring-2 focus:ring-primary outline-none"
             />
           </div>
 
@@ -138,7 +138,7 @@ export default function EventFormModal({ isOpen, onClose, onEventAdded, eventToE
               rows={3}
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground focus:ring-2 focus:ring-primary outline-none"
+              className="w-full px-3 sm:px-4 py-2.5 bg-background border border-border rounded-lg text-sm sm:text-base text-foreground focus:ring-2 focus:ring-primary outline-none resize-y"
             />
           </div>
 
@@ -146,9 +146,9 @@ export default function EventFormModal({ isOpen, onClose, onEventAdded, eventToE
             <label className="block text-sm font-medium text-foreground mb-1">
               Event Image/Flyer {eventToEdit ? "(Optional: Leave to keep existing)" : "*"}
             </label>
-            <label className="border-2 border-dashed border-border rounded-lg p-6 flex flex-col items-center justify-center text-muted-foreground hover:bg-secondary/50 cursor-pointer">
-              <Upload className="w-8 h-8 mb-2 text-primary" />
-              <span className="text-sm">
+            <label className="border-2 border-dashed border-border rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center text-muted-foreground hover:bg-secondary/50 cursor-pointer text-center">
+              <Upload className="w-7 h-7 sm:w-8 sm:h-8 mb-2 text-primary" />
+              <span className="text-xs sm:text-sm break-all">
                 {imageFile ? imageFile.name : eventToEdit ? "Click to replace existing image" : "Click to select image"}
               </span>
               <input
@@ -163,7 +163,7 @@ export default function EventFormModal({ isOpen, onClose, onEventAdded, eventToE
             </label>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             <div>
               <label className="block text-sm font-medium text-foreground mb-1">Start Date & Time *</label>
               <input
@@ -171,7 +171,7 @@ export default function EventFormModal({ isOpen, onClose, onEventAdded, eventToE
                 required
                 value={formData.start_date}
                 onChange={(e) => setFormData({ ...formData, start_date: e.target.value })}
-                className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground focus:ring-2 focus:ring-primary outline-none"
+                className="w-full px-3 sm:px-4 py-2.5 bg-background border border-border rounded-lg text-sm sm:text-base text-foreground focus:ring-2 focus:ring-primary outline-none"
               />
             </div>
             <div>
@@ -181,7 +181,7 @@ export default function EventFormModal({ isOpen, onClose, onEventAdded, eventToE
                 required
                 value={formData.end_date}
                 onChange={(e) => setFormData({ ...formData, end_date: e.target.value })}
-                className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground focus:ring-2 focus:ring-primary outline-none"
+                className="w-full px-3 sm:px-4 py-2.5 bg-background border border-border rounded-lg text-sm sm:text-base text-foreground focus:ring-2 focus:ring-primary outline-none"
               />
             </div>
           </div>
@@ -192,7 +192,7 @@ export default function EventFormModal({ isOpen, onClose, onEventAdded, eventToE
               type="url"
               value={formData.registration_link}
               onChange={(e) => setFormData({ ...formData, registration_link: e.target.value })}
-              className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground focus:ring-2 focus:ring-primary outline-none"
+              className="w-full px-3 sm:px-4 py-2.5 bg-background border border-border rounded-lg text-sm sm:text-base text-foreground focus:ring-2 focus:ring-primary outline-none"
             />
           </div>
 
@@ -202,25 +202,25 @@ export default function EventFormModal({ isOpen, onClose, onEventAdded, eventToE
               type="text"
               value={formData.additional_info}
               onChange={(e) => setFormData({ ...formData, additional_info: e.target.value })}
-              className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground focus:ring-2 focus:ring-primary outline-none"
+              className="w-full px-3 sm:px-4 py-2.5 bg-background border border-border rounded-lg text-sm sm:text-base text-foreground focus:ring-2 focus:ring-primary outline-none"
             />
           </div>
 
-          <div className="pt-4 border-t border-border flex justify-end space-x-3">
+          <div className="pt-3 sm:pt-4 border-t border-border flex flex-col-reverse sm:flex-row sm:justify-end gap-3 sm:space-x-3">
             <button
               type="button"
               onClick={onClose}
               disabled={loading}
-              className="px-5 py-2.5 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-secondary/80"
+              className="w-full sm:w-auto px-4 sm:px-5 py-2.5 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-secondary/80 text-sm sm:text-base"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={loading}
-              className="px-5 py-2.5 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 flex items-center"
+              className="w-full sm:w-auto px-4 sm:px-5 py-2.5 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 flex items-center justify-center text-sm sm:text-base"
             >
-              {loading ? <Loader2 className="w-5 h-5 animate-spin mr-2" /> : null}
+              {loading ? <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin mr-2" /> : null}
               {loading ? "Saving..." : eventToEdit ? "Save Changes" : "Upload Event"}
             </button>
           </div>
