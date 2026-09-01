@@ -63,7 +63,7 @@ export default function Events() {
             <div className="w-full max-w-7xl mx-auto mb-10 flex justify-center space-x-4">
               <button
                 onClick={() => setActiveTab("upcoming")}
-                className={`px-6 py-2 rounded-full font-medium transition-colors ${
+                className={`px-6 py-2 text-sm rounded-full font-medium transition-colors ${
                   activeTab === "upcoming"
                     ? "bg-primary text-primary-foreground shadow-md"
                     : "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border"
