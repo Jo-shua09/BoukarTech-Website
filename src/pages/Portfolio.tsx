@@ -28,7 +28,7 @@ export default function Portfolio() {
 
       <Layout>
         <div className="pt-28 md:pt-36 pb-20 min-h-screen">
-          <div className="max-w-7xl mx-auto md:p-0 px-5">
+          <div className="max-w-7xl mx-auto px-5">
             <SectionHeading
               tag="Our Work"
               title="Featured"

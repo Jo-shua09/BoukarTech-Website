@@ -13,6 +13,10 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Blog from "@/pages/Blog";
 import Portfolio from "@/pages/Portfolio";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import Events from "@/pages/Events";
+import AdminDashboard from "@/pages/admin/Dashboard";
+import AdminLogin from "@/pages/admin/Login";
+import ProtectedRoute from '@/components/ProtectedRoute';
 
 const queryClient = new QueryClient();
 
@@ -28,11 +32,21 @@ const AppRouter = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/events" element={<Events />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/career" element={<Career />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/admin" element={<AdminLogin />} />
+<Route 
+          path="/admin/dashboard" 
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          } 
+        />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

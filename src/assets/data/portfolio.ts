@@ -88,7 +88,7 @@ export const portfolioProjects = [
     link: "https://travolaglobalconsults.com",
   },
   {
-    id: 7,
+    id: 9,
     title: "Executive Profile Optimization",
     category: "Personal Branding",
     type: "LinkedIn Optimization",
@@ -98,7 +98,7 @@ export const portfolioProjects = [
     link: "#",
   },
   {
-    id: 8,
+    id: 10,
     title: "Career Growth Optimization",
     category: "Career Strategy",
     type: "LinkedIn Optimization",
