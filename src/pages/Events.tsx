@@ -73,7 +73,7 @@ export default function Events() {
               </button>
               <button
                 onClick={() => setActiveTab("past")}
-                className={`px-6 py-2 rounded-full font-medium transition-colors ${
+                className={`px-6 py-2 text-sm rounded-full font-medium transition-colors ${
                   activeTab === "past"
                     ? "bg-foreground text-background shadow-md"
                     : "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border"
