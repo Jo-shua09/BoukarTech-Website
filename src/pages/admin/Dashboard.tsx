@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { PlusCircle, LogOut, Trash2, CheckCircle, XCircle, Edit } from "lucide-react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import { supabase } from "@/lib/supabase";
 import EventFormModal from "./EventFormModal";
 import { AppEvent } from "@/types/event";
@@ -29,17 +30,51 @@ export default function AdminDashboard() {
 
   const toggleCompletedStatus = async (id: string, currentStatus: boolean) => {
     const { error } = await supabase.from("events").update({ is_completed: !currentStatus }).eq("id", id);
-    if (!error) fetchEvents();
+
+    if (error) {
+      toast.error("Unable to update event status", {
+        description: error.message,
+      });
+      return;
+    }
+
+    const nextStatus = !currentStatus;
+    toast.success(nextStatus ? "Event marked as completed" : "Event marked as active", {
+      description: nextStatus ? "The event is now listed as completed." : "The event is active again.",
+    });
+    fetchEvents();
   };
 
   const handleDelete = async (id: string, imageUrl: string) => {
     if (!window.confirm("Are you sure you want to delete this event?")) return;
-    const fileName = imageUrl.split("/").pop();
-    if (fileName) {
-      await supabase.storage.from("event_images").remove([fileName]);
+
+    try {
+      const fileName = imageUrl.split("/").pop();
+      if (fileName) {
+        const { error: storageError } = await supabase.storage.from("event_images").remove([fileName]);
+        if (storageError) {
+          console.error("Error deleting event image:", storageError);
+        }
+      }
+
+      const { error } = await supabase.from("events").delete().eq("id", id);
+      if (error) {
+        toast.error("Delete failed", {
+          description: error.message,
+        });
+        return;
+      }
+
+      toast.success("Event deleted", {
+        description: "The event has been removed successfully.",
+      });
+      fetchEvents();
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Unknown error";
+      toast.error("Delete failed", {
+        description: message,
+      });
     }
-    const { error } = await supabase.from("events").delete().eq("id", id);
-    if (!error) fetchEvents();
   };
 
   const openEditModal = (event: AppEvent) => {

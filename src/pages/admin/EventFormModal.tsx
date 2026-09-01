@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { X, Upload, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
 import { supabase } from "@/lib/supabase";
 import { AppEvent } from "@/types/event";
 
@@ -81,16 +82,24 @@ export default function EventFormModal({ isOpen, onClose, onEventAdded, eventToE
       if (eventToEdit) {
         const { error } = await supabase.from("events").update(payload).eq("id", eventToEdit.id);
         if (error) throw error;
+        toast.success("Event updated successfully", {
+          description: "Your changes have been saved.",
+        });
       } else {
         const { error } = await supabase.from("events").insert([{ ...payload, is_completed: false }]);
         if (error) throw error;
+        toast.success("Event uploaded successfully", {
+          description: "The new event is now live.",
+        });
       }
 
       onEventAdded();
       onClose();
     } catch (error: unknown) {
       const message = error instanceof Error ? error.message : "Unknown error";
-      alert("Error saving event: " + message);
+      toast.error("Error saving event", {
+        description: message,
+      });
     } finally {
       setLoading(false);
     }

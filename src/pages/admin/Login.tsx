@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Lock, AlertCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import { supabase } from "../../lib/supabase";
 
 export default function AdminLogin() {
@@ -23,8 +24,14 @@ export default function AdminLogin() {
 
     if (error) {
       setError(error.message);
+      toast.error("Login failed", {
+        description: error.message,
+      });
       setLoading(false);
     } else if (data.user) {
+      toast.success("Login successful", {
+        description: "Welcome back to the admin dashboard.",
+      });
       navigate("/admin/dashboard");
     }
   };
